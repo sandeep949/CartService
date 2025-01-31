@@ -24,6 +24,10 @@ public class CartItem {
     @NotBlank
     private String price;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageData;
+
 
     public Long getId() {
         return id;
@@ -59,6 +63,12 @@ public class CartItem {
     }
     public void setPrice(String price) {
         this.price = price;
+    }
+    public String getImageData() {
+        return imageData;
+    }
+    public void setImageData(String imageData) {
+        this.imageData = imageData;
     }
 
 
