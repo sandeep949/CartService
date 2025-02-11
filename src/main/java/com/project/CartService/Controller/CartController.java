@@ -55,5 +55,15 @@ import org.springframework.web.client.RestTemplate;
 
     }
 
+    @PutMapping("/update/{userId}/{productId}")
+    public ResponseEntity<Cart> updateCartItemQuantity(
+            @PathVariable Long userId,
+            @PathVariable Long itemId,
+            @RequestBody CartItem updatedItem) {
+
+        Cart updatedCart = cartService.updateCartItemQuantity(userId, itemId, updatedItem.getQuantity());
+        return ResponseEntity.ok(updatedCart);
+    }
+
 
 }

@@ -26,7 +26,7 @@ public class CartItem {
 
     @Lob
     @Column(columnDefinition = "LONGTEXT")
-    private String imageData;
+    private String imageSrc;
 
 
     public Long getId() {
@@ -64,11 +64,11 @@ public class CartItem {
     public void setPrice(String price) {
         this.price = price;
     }
-    public String getImageData() {
-        return imageData;
+    public String getImageSrc() {
+        return imageSrc;
     }
-    public void setImageData(String imageData) {
-        this.imageData = imageData;
+    public void setImageSrc(String imageSrc) {
+        this.imageSrc = imageSrc;
     }
 
 

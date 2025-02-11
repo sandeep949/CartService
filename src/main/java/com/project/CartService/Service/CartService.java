@@ -101,6 +101,19 @@ public Cart getOrCreateCartByUserId(Long userId) {
     });
 }
 
+    public Cart updateCartItemQuantity(Long userId, Long productId, int newQuantity) {
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Cart not found for user ID: " + userId));
+
+        CartItem cartItem = cart.getItems().stream()
+                .filter(item -> item.getProductId().equals(productId))
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found in cart: " + productId));
+
+        cartItem.setQuantity(newQuantity);
+        cartRepository.save(cart);
+        return cart;
+    }
 }
 
 
